@@ -13,7 +13,7 @@
  	<context:component-scan base-package="org.sergio.*" />
    
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+    	<!--property name="driverClassName" value="com.mysql.jdbc.Driver" /--> 
     	<property name="driverClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" />
     	<property name="url" value="jdbc:mysql://localhost:3306/ct" />
     	<property name="username" value="root" />
@@ -30,7 +30,6 @@
         <property name="persistenceXmlLocation" value="persistence.xml" />
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
-        <!-- spring based scanning for entity classes-->
 		<property name="packagesToScan" value="org.sergio.jtaSpringProject.entities" />
 	</bean>
 	
@@ -45,16 +44,25 @@
     
     <!--  JTA & Narayana -->
 	
-	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
-		<property name="transactionManager">
-			<bean class="com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionManagerImple" />
-		</property>
-		<property name="userTransaction">
-			<bean class="com.arjuna.ats.internal.jta.transaction.arjunacore.UserTransactionImple" />
-		</property>
-	</bean>
+	<!-- Atomikos JTA transaction manager -->
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="allowCustomIsolationLevels" value="true"/>
+
+        <property name="transactionManager">
+            <bean class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init" destroy-method="close">
+                <property name="forceShutdown" value="false"/>
+            </bean>
+        </property>
+
+        <property name="userTransaction">
+            <bean class="com.atomikos.icatch.jta.J2eeUserTransaction">
+                <property name="transactionTimeout" value="300"/>
+            </bean>
+        </property>
+    </bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 	
+   
 
 </beans>
