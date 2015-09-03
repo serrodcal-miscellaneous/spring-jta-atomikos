@@ -29,7 +29,8 @@
 		   <property name="hibernate.show_sql" value="false" />
 		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 		   <property name="hibernate.connection.autocommit" value="false" />
-		   <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory" />
+		   <!-- <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory" /> -->
+		   <property name="hibernate.transaction.factory_class" value="com.atomikos.icatch.jta.hibernate3.AtomikosJTATransactionFactory" />
 		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
 		 </properties>
 	</persistence-unit>
