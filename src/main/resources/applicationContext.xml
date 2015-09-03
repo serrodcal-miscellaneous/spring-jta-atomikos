@@ -31,51 +31,6 @@
 		<property name="maxPoolSize" value="3" />
 		<property name="minPoolSize" value="1" />
 	</bean>
- 	
- 	<!-- <bean id="transferDataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
-	init-method="init" destroy-method="close">
-		<property name="uniqueResourceName">
-			<value>XADBMSTRANSFER</value>
-		</property>
-		<property name="xaDataSourceClassName">
-			<value>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</value>
-		</property>
-		<property name="xaProperties">
-		   <props>
-			    <prop key="URL">jdbc:mysql://localhost:3306/ct</prop>
-			    <prop key="user">root</prop>
-			    <prop key="password">root</prop>
-		   </props>
-		</property>
-		<property name="maxPoolSize" value="3" />
-		<property name="minPoolSize" value="1" />
-	</bean>
-	
-	<bean id="clientDataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
-	init-method="init" destroy-method="close">
-		<property name="uniqueResourceName">
-			<value>XADBMSCLIENT</value>
-		</property>
-		<property name="xaDataSourceClassName">
-			<value>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</value>
-		</property>
-		<property name="xaProperties">
-		   <props>
-			    <prop key="URL">jdbc:mysql://localhost:3306/ct</prop>
-			    <prop key="user">root</prop>
-			    <prop key="password">root</prop>
-		   </props>
-		</property>
-		<property name="maxPoolSize" value="3" />
-		<property name="minPoolSize" value="1" />
-	</bean> -->
-	
-	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
-    	<property name="url" value="jdbc:mysql://localhost:3306/ct" />
-    	<property name="username" value="root" />
-    	<property name="password" value="root" />
-   	</bean> -->
    	
    	<bean id="entityManagerFactory"
 	  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -88,30 +43,6 @@
 		  </property>
 		<property name="persistenceUnitName" value="presistence-unit" />
 	 </bean>
-	
-	<!--  <bean id="transferEntityManagerFactory"
-	  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		  <property name="dataSource" ref="transferDataSource" />
-		  <property name="jpaVendorAdapter">
-		   	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-		  </property>
-		  <property name="persistenceXmlLocation">
-			<value>persistence.xml</value>
-		  </property>
-		<property name="persistenceUnitName" value="transfer-presistence-unit" />
-	 </bean>
-	 
-	 <bean id="clientEntityManagerFactory"
-	  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		  <property name="dataSource" ref="clientDataSource" />
-		  <property name="jpaVendorAdapter">
-		   	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-		  </property>
-		  <property name="persistenceXmlLocation">
-			<value>persistence.xml</value>
-		  </property>
-		<property name="persistenceUnitName" value="transfer-presistence-unit" />
-	 </bean> -->
 	 	
  	<bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
 	init-method="init" destroy-method="close">
@@ -129,29 +60,5 @@
 		<property name="userTransaction" ref="atomikosUserTransaction" />
 		<property name="allowCustomIsolationLevels" value="true" />
 	</bean>
-	
-	<!-- POC -->
-	
-	<bean id="sessionFactory"  
-    class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
-      <property name="dataSource"><ref bean="dataSource"/></property> 
- 
-      <!-- <property name="hibernateProperties"> 
-         <props> 
-            <prop key="hibernate.transaction.factory_class"> 
-               com.atomikos.icatch.jta.hibernate3.AtomikosJTATransactionFactory 
-            </prop> 
-            <prop key="hibernate.transaction.manager_lookup_class"> 
-                 com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup 
-             </prop> 
-         </props> 
-      </property>  -->
- 
-   </bean> 
- 
-   <bean id="hibernateTemplate"  
-    class="org.springframework.orm.hibernate4.HibernateTemplate"> 
-      <property name="sessionFactory"><ref bean="sessionFactory"/></property> 
-   </bean>
 
 </beans>
