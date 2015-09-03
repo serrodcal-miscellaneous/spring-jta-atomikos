@@ -28,36 +28,9 @@
 		   <property name="hibernate.hbm2ddl.auto" value="update" />
 		   <property name="hibernate.show_sql" value="false" />
 		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		   <property name="hibernate.connection.autocommit" value="false" />
+		   <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory" />
 		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
-		   <!-- <property name="hibernate.cache.use_second_level_cache" value="true"/>
-		   <property name="hibernate.cache.use_query_cache" value="true"/>
-		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/> -->
 		 </properties>
 	</persistence-unit>
-    <!-- <persistence-unit name="transfer-presistence-unit" transaction-type="JTA">
-    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<class>org.sergio.jtaSpringProject.entities.Transfer</class>
-		<properties>
-		   <property name="hibernate.hbm2ddl.auto" value="update" />
-		   <property name="hibernate.show_sql" value="false" />
-		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
-		   <property name="hibernate.cache.use_second_level_cache" value="true"/>
-		   <property name="hibernate.cache.use_query_cache" value="true"/>
-		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/>
-		 </properties>
-	</persistence-unit>
-	<persistence-unit name="client-presistence-unit" transaction-type="JTA">
-    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<class>org.sergio.jtaSpringProject.entities.Client</class>
-		<properties>
-		   <property name="hibernate.hbm2ddl.auto" value="update" />
-		   <property name="hibernate.show_sql" value="false" />
-		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
-		   <property name="hibernate.cache.use_second_level_cache" value="true"/>
-		   <property name="hibernate.cache.use_query_cache" value="true"/>
-		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/>
-		 </properties>
-	</persistence-unit> -->
 </persistence>

@@ -11,7 +11,7 @@
  	<!-- Create proxy instances of Repository interfaces -->
     <jpa:repositories base-package="org.sergio.jtaSpringProject.repositories"/>
  	
- 	<tx:annotation-driven />
+ 	<tx:annotation-driven  transaction-manager="transactionManager"/>
  	
  	<bean id="dataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
 	init-method="init" destroy-method="close">
@@ -49,7 +49,7 @@
 		<property name="forceShutdown" value="false" />
 	</bean>
 
-	<bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.J2eeUserTransaction">
+	<bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
 		<property name="transactionTimeout" value="300" />
 	</bean>
 
