@@ -7,6 +7,7 @@ import org.sergio.jtaSpringProject.entities.Client;
 import org.sergio.jtaSpringProject.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClientService {
@@ -20,13 +21,15 @@ public class ClientService {
 		super();
 	}
 	
+	@Transactional
 	public List<Client> getClients(){
 		if(logger.isTraceEnabled()){
 			logger.trace("getTransfers()");
 		}
-		return this.clientRepository.findAll();
+		return (List<Client>) this.clientRepository.findAll();
 	}
 	
+	@Transactional
 	public Client getClient(int id){
 		if(logger.isTraceEnabled()){
 			logger.trace("getClient()");
@@ -34,6 +37,7 @@ public class ClientService {
 		return this.clientRepository.findOne(id);
 	}
 	
+	@Transactional
 	public void saveClient(Client client){
 		if(logger.isTraceEnabled()){
 			logger.trace("saveClient()");
@@ -45,6 +49,7 @@ public class ClientService {
 		}
 	}
 	
+	@Transactional
 	public void deleteClient(Client client){
 		if(logger.isTraceEnabled()){
 			logger.trace("deleteClient()");
@@ -55,6 +60,7 @@ public class ClientService {
 		}
 	}
 	
+	@Transactional
 	public void deleteClientById(int id){
 		if(logger.isTraceEnabled()){
 			logger.trace("deleteClientById()");

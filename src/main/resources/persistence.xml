@@ -20,14 +20,44 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-    <persistence-unit name="cdi-presistence-unit" transaction-type="JTA">
-        <jta-data-source>jdbc/ct</jta-data-source>
-        <class>org.jtaSpringProject.entities.Client</class>
-        <class>org.jtaSpringProject.entities.Transfer</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="hibernate.show_sql" value="true"/>
-        </properties>
-    </persistence-unit>
+    <persistence-unit name="presistence-unit" transaction-type="JTA">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<class>org.sergio.jtaSpringProject.entities.Transfer</class>
+    	<class>org.sergio.jtaSpringProject.entities.Client</class>
+		<properties>
+		   <property name="hibernate.hbm2ddl.auto" value="update" />
+		   <property name="hibernate.show_sql" value="false" />
+		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
+		   <!-- <property name="hibernate.cache.use_second_level_cache" value="true"/>
+		   <property name="hibernate.cache.use_query_cache" value="true"/>
+		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/> -->
+		 </properties>
+	</persistence-unit>
+    <!-- <persistence-unit name="transfer-presistence-unit" transaction-type="JTA">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<class>org.sergio.jtaSpringProject.entities.Transfer</class>
+		<properties>
+		   <property name="hibernate.hbm2ddl.auto" value="update" />
+		   <property name="hibernate.show_sql" value="false" />
+		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
+		   <property name="hibernate.cache.use_second_level_cache" value="true"/>
+		   <property name="hibernate.cache.use_query_cache" value="true"/>
+		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/>
+		 </properties>
+	</persistence-unit>
+	<persistence-unit name="client-presistence-unit" transaction-type="JTA">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<class>org.sergio.jtaSpringProject.entities.Client</class>
+		<properties>
+		   <property name="hibernate.hbm2ddl.auto" value="update" />
+		   <property name="hibernate.show_sql" value="false" />
+		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
+		   <property name="hibernate.cache.use_second_level_cache" value="true"/>
+		   <property name="hibernate.cache.use_query_cache" value="true"/>
+		   <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.infinispan.InfinispanRegionFactory"/>
+		 </properties>
+	</persistence-unit> -->
 </persistence>

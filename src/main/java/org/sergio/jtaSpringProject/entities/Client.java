@@ -1,20 +1,16 @@
 package org.sergio.jtaSpringProject.entities;
 
-import java.util.LinkedList;
+
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 import org.apache.log4j.Logger;
-import org.sergio.jtaSpringProject.App;
 
 @Entity
 public class Client {
@@ -63,7 +59,7 @@ public class Client {
 		this.balance = balance;
 	}
 
-	@ManyToMany(mappedBy = "clients")
+	@ManyToMany
 	public List<Transfer> getTransfers() {
 		return transfers;
 	}
@@ -108,7 +104,7 @@ public class Client {
 		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((transfers == null) ? 0 : transfers.hashCode());
+//		result = prime * result + ((transfers == null) ? 0 : transfers.hashCode());
 		return result;
 	}
 

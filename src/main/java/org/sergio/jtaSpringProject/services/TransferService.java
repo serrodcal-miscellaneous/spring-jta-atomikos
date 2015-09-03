@@ -7,6 +7,7 @@ import org.sergio.jtaSpringProject.entities.Transfer;
 import org.sergio.jtaSpringProject.repositories.TransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TransferService {
@@ -20,13 +21,15 @@ public class TransferService {
 		super();
 	}
 	
+	@Transactional
 	public List<Transfer> getTransfers(){
 		if(logger.isTraceEnabled()){
 			logger.trace("getTransfers()");
 		}
-		return this.transferRepository.findAll();
+		return (List<Transfer>) this.transferRepository.findAll();
 	}
 	
+	@Transactional
 	public Transfer getTransfer(int id){
 		if(logger.isTraceEnabled()){
 			logger.trace("getTransfer()");
@@ -34,6 +37,7 @@ public class TransferService {
 		return this.transferRepository.findOne(id);
 	}
 	
+	@Transactional
 	public void saveTransfer(Transfer transfer){
 		if(logger.isTraceEnabled()){
 			logger.trace("saveTransfer()");
@@ -44,6 +48,7 @@ public class TransferService {
 		}
 	}
 	
+	@Transactional
 	public void deleteTransfer(Transfer transfer){
 		if(logger.isTraceEnabled()){
 			logger.trace("deleteTransfer()");
@@ -54,6 +59,7 @@ public class TransferService {
 		}
 	}
 	
+	@Transactional
 	public void deleteTransferById(int id){
 		if(logger.isTraceEnabled()){
 			logger.trace("deleteTransferById()");
