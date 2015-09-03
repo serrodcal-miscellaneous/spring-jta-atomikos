@@ -59,7 +59,7 @@ public class Client {
 		this.balance = balance;
 	}
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "clients")
 	public List<Transfer> getTransfers() {
 		return transfers;
 	}
