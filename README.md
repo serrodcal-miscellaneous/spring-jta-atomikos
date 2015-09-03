@@ -1,15 +1,9 @@
 # spring-jta-narayana
-Spring project with JTA, JPA, Hibernate and Narayana
+Spring project with JTA, JPA, Hibernate and Atomikos.
 
-At first, this project was a typical project with Spring JPA (and Hibernate) for MySQL DB with transactions.
+References:
 
-But now, this project was converted to use JTA and Narayana.
-
-Changes to convert this project:
-
-1. Add dependencies to pom.xml: spring-tx, jta, jbossjta and narayana-jta.
-2. Change MySQL driver to XA implementation support.
-3. Add to applicationContext.xml transactionManager references and comment old transactionManager setting.
-4. To indicate transaction-manager in tx:annotation-driven in applicationContext.xml.
-
-Additionally contains: Log4J (according to: http://spring.io/blog/2009/12/04/logging-dependencies-in-spring/)
+http://www.atomikos.com/Documentation/HibernateIntegration#With_JPA
+http://www.javacodegeeks.com/2010/06/gwt-spring-and-hibernate-enter-world-of.html
+http://fabiomaffioletti.me/blog/2014/04/15/distributed-transactions-multiple-databases-spring-boot-spring-data-jpa-atomikos/
+http://fogbugz.atomikos.com/default.asp?community.6.2843.5
