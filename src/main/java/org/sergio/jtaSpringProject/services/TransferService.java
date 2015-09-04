@@ -36,7 +36,7 @@ public class TransferService {
 		if(logger.isTraceEnabled()){
 			logger.trace("getTransfer()");
 		}
-		return this.transferRepository.getOne(id);
+		return this.transferRepository.getOne((long) id);
 	}
 	
 	@Transactional

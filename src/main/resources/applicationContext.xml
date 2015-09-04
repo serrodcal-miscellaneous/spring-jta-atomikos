@@ -11,8 +11,6 @@
  	<bean id="appService" class="org.sergio.jtaSpringProject.services.AppService" />
  	<bean id="clientService" class="org.sergio.jtaSpringProject.services.ClientService" />
  	<bean id="trasnferService" class="org.sergio.jtaSpringProject.services.TransferService" />
- 	<bean id="clientRepository" class="org.sergio.jtaSpringProject.repositories.ClientRepository" />
- 	<bean id="transferRepository" class="org.sergio.jtaSpringProject.repositories.TransferRepository" />
  	
  	<!-- Create proxy instances of Repository interfaces -->
     <jpa:repositories base-package="org.sergio.jtaSpringProject.repositories"/>

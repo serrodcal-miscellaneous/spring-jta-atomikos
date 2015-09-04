@@ -7,6 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 //@Repository
 //@Transactional
-public interface ClientRepository extends JpaRepository<Client, Integer> {
+public interface ClientRepository extends JpaRepository<Client, Long> {
 	
 }

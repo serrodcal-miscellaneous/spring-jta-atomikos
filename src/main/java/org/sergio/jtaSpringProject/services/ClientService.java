@@ -35,7 +35,7 @@ public class ClientService {
 		if(logger.isTraceEnabled()){
 			logger.trace("getClient()");
 		}
-		return this.clientRepository.getOne(id);
+		return this.clientRepository.getOne((long) id);
 	}
 	
 	@Transactional

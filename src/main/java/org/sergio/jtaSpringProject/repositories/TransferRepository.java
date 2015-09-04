@@ -7,6 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 //@Repository
 //@Transactional
-public interface TransferRepository extends JpaRepository<Transfer, Integer> {
+public interface TransferRepository extends JpaRepository<Transfer, Long> {
 
 }

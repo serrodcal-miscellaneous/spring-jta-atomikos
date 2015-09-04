@@ -22,7 +22,7 @@ public class Transfer {
 
 	private static final Logger logger = Logger.getLogger(Transfer.class);
 	
-	private int id;
+	private Long id;
 	
 	private Date date;
 	
@@ -40,11 +40,11 @@ public class Transfer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -112,7 +112,7 @@ public class Transfer {
 		result = prime * result + ((clients == null) ? 0 : clients.hashCode());
 		result = prime * result + ((concept == null) ? 0 : concept.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + id;
+		result = (int) (prime * result + id);
 		return result;
 	}
 

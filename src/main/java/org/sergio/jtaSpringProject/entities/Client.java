@@ -17,7 +17,7 @@ public class Client {
 
 	private static final Logger logger = Logger.getLogger(Client.class);
 	
-	private int id;
+	private Long id;
 	
 	private String name;
 	
@@ -33,11 +33,11 @@ public class Client {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -102,7 +102,7 @@ public class Client {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
-		result = prime * result + id;
+		result = (int) (prime * result + id);
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 //		result = prime * result + ((transfers == null) ? 0 : transfers.hashCode());
 		return result;
