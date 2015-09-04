@@ -8,9 +8,7 @@
  	
  	<!-- <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> -->
  	
- 	<bean id="appService" class="org.sergio.jtaSpringProject.services.AppService" />
- 	<bean id="clientService" class="org.sergio.jtaSpringProject.services.ClientService" />
- 	<bean id="trasnferService" class="org.sergio.jtaSpringProject.services.TransferService" />
+ 	<bean id="appService" class="org.sergio.jtaSpringProject.services.PersonService" />
  	
  	<!-- Create proxy instances of Repository interfaces -->
     <jpa:repositories base-package="org.sergio.jtaSpringProject.repositories"/>
@@ -27,7 +25,7 @@
 		</property>
 		<property name="xaProperties">
 		   <props>
-			    <prop key="URL">jdbc:mysql://localhost:3306/ct</prop>
+			    <prop key="URL">jdbc:mysql://localhost:3306/testSimpleEntity</prop>
 			    <prop key="user">root</prop>
 			    <prop key="password">root</prop>
 		   </props>
