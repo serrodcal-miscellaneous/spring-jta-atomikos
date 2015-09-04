@@ -7,6 +7,7 @@ import org.sergio.jtaSpringProject.repositories.ClientRepository;
 import org.sergio.jtaSpringProject.repositories.TransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -24,12 +25,12 @@ public class AppService {
 		super();
 	}
 	
-	@Transactional
+	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class,value="jtaTransactionManager")
 	public void createClient(Client client){
 		this.clientService.saveClient(client);
 	}
 	
-	@Transactional
+	@Transactional(readOnly=false,propagation=Propagation.REQUIRED,rollbackFor=Exception.class,value="jtaTransactionManager")
 	public void makeTransfer(Transfer transfer) throws Exception{
 		if(logger.isDebugEnabled()){
 			logger.debug("Begin transfer");

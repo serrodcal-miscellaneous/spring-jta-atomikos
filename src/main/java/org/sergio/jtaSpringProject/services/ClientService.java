@@ -1,5 +1,6 @@
 package org.sergio.jtaSpringProject.services;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -34,7 +35,7 @@ public class ClientService {
 		if(logger.isTraceEnabled()){
 			logger.trace("getClient()");
 		}
-		return this.clientRepository.findOne(id);
+		return this.clientRepository.getOne(id);
 	}
 	
 	@Transactional
@@ -42,7 +43,7 @@ public class ClientService {
 		if(logger.isTraceEnabled()){
 			logger.trace("saveClient()");
 		}
-		this.clientRepository.save(client);
+		this.clientRepository.saveAndFlush(client);
 		
 		if(logger.isDebugEnabled()){
 			logger.debug("Save Client");
@@ -54,21 +55,23 @@ public class ClientService {
 		if(logger.isTraceEnabled()){
 			logger.trace("deleteClient()");
 		}
-		this.clientRepository.delete(client);
+		List<Client> clients = new LinkedList<Client>();
+		clients.add(client);
+		this.clientRepository.deleteInBatch(clients);
 		if(logger.isDebugEnabled()){
 			logger.debug("Client Transfer");
 		}
 	}
 	
-	@Transactional
-	public void deleteClientById(int id){
-		if(logger.isTraceEnabled()){
-			logger.trace("deleteClientById()");
-		}
-		this.clientRepository.delete(id);
-		if(logger.isDebugEnabled()){
-			logger.debug("Client Transfer");
-		}
-	}
+//	@Transactional
+//	public void deleteClientById(int id){
+//		if(logger.isTraceEnabled()){
+//			logger.trace("deleteClientById()");
+//		}
+//		this.clientRepository.delete(id);
+//		if(logger.isDebugEnabled()){
+//			logger.debug("Client Transfer");
+//		}
+//	}
 	
 }

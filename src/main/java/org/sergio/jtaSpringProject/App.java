@@ -33,7 +33,7 @@ public class App
         	if(logger.isDebugEnabled()){
     			logger.debug("Get context");
     		}
-	        test1(context);
+	        //test1(context);
 	        //test2(context);
         }else{
         	logger.error("Cannot get context");
