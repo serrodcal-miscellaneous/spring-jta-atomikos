@@ -72,16 +72,17 @@
 		<property name="allowCustomIsolationLevels" value="true" />
 	</bean>
 	
+	<!-- Not necessary, I think -->
 	<!-- configure Hibernate to use the Atomikos JTA and datasource for transaction 
 		control -->
-	<bean id="sessionFactory"
+	<!-- <bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<!-- make sure that hibernate uses the Atomikos datasource (JTA enabled)! -->
+		make sure that hibernate uses the Atomikos datasource (JTA enabled)!
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
 
-		<!-- configure hibernate to use Atomikos TransactionsEssentials -->
+		configure hibernate to use Atomikos TransactionsEssentials
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.transaction.factory_class">
@@ -93,10 +94,9 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-
 			</props>
 		</property>
 		<property name="packagesToScan" value="org.sergio.jtaSpringProject.entities" />
-	</bean>
+	</bean> -->
 
 </beans>

@@ -22,11 +22,8 @@
              version="2.1">
     <persistence-unit name="presistence-unit" transaction-type="JTA"> <!--  transaction-type="RESOURCE_LOCAL"> -->
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<!-- <jta-data-source>jdbc/ct</jta-data-source> -->
     	<class>org.sergio.jtaSpringProject.entities.Transfer</class>
     	<class>org.sergio.jtaSpringProject.entities.Client</class>
-    	<class>org.sergio.jtaSpringProject.repositories.TransferRepository</class>
-    	<class>org.sergio.jtaSpringProject.repositories.ClientRepository</class>
 		<properties>
 		   <property name="hibernate.hbm2ddl.auto" value="update" />
 		   <property name="hibernate.show_sql" value="false" />
