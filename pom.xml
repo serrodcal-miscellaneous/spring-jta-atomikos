@@ -44,11 +44,6 @@
 	      	</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.2.0.RELEASE</version>
-		</dependency>
-		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
@@ -63,11 +58,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.11.Final</version>
 		</dependency>
-		<!-- <dependency>
-	      <groupId>org.hibernate</groupId>
-	      <artifactId>hibernate-ehcache</artifactId>
-	      <version>4.3.7.Final</version>
-	    </dependency> -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
@@ -86,25 +76,13 @@
 		</dependency>
 		<dependency>
 			<groupId>com.atomikos</groupId>
+			<artifactId>transactions</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
 			<artifactId>transactions-jta</artifactId>
 			<version>3.9.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-jdbc</artifactId>
-			<version>3.9.3</version>
-		</dependency>
-		<dependency>
-			<groupId>com.atomikos</groupId>
-			<artifactId>transactions-hibernate3</artifactId>
-			<version>3.9.3</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>hibernate</artifactId>
-					<groupId>org.hibernate</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<!-- Logging (Log4J) -->
 		<dependency>

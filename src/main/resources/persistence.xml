@@ -20,17 +20,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-    <persistence-unit name="presistence-unit" transaction-type="JTA"> <!--  transaction-type="RESOURCE_LOCAL"> -->
-    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-    	<class>org.sergio.jtaSpringProject.entities.Person</class>
-		<properties>
-		   <property name="hibernate.hbm2ddl.auto" value="update" />
-		   <property name="hibernate.show_sql" value="false" />
-		   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-		   <property name="hibernate.connection.autocommit" value="false" />
-		   <property name="hibernate.transaction.factory_class" value="org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory" />
-		   <!-- <property name="hibernate.transaction.factory_class" value="com.atomikos.icatch.jta.hibernate3.AtomikosJTATransactionFactory" /> -->
-		   <property name="hibernate.transaction.manager_lookup_class" value="com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup" />
-		 </properties>
-	</persistence-unit>
+    <persistence-unit name="presistence-unit" transaction-type="JTA">
+       <class>org.jtaSpringProject.entities.Person</class>
+        <!-- <exclude-unlisted-classes>true</exclude-unlisted-classes> -->
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
 </persistence>
